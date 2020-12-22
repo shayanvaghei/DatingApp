@@ -58,7 +58,7 @@ namespace API
 
             // add Cors here in the pipeline 
             // this needs to come before authentication
-            app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
 
 
             // adding authentication into middleware just above authorization
