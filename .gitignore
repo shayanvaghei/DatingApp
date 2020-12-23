@@ -5,6 +5,8 @@
 
 ssl
 
+dist
+
 # User-specific files
 *.rsuser
 *.suo

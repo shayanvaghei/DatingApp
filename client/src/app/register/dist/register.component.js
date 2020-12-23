@@ -9,8 +9,9 @@ exports.__esModule = true;
 exports.RegisterComponent = void 0;
 var core_1 = require("@angular/core");
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(accountService) {
+    function RegisterComponent(accountService, toastr) {
         this.accountService = accountService;
+        this.toastr = toastr;
         this.cancelRegister = new core_1.EventEmitter();
         this.model = {};
     }
@@ -22,6 +23,7 @@ var RegisterComponent = /** @class */ (function () {
             _this.cancel();
         }, function (error) {
             console.log(error);
+            _this.toastr.error(error.error);
         });
     };
     RegisterComponent.prototype.cancel = function () {
