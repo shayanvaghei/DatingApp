@@ -1,0 +1,15 @@
+Top hits for "ERR!" "peer" "@angular/common@" "from" "@kolkov/ngx-gallery@1.2.3"
+————————————————————————————————————————————————————————————————————————————————
+npm help config                                                  from:12 peer:19
+npm help package-json                                             from:5 peer:12
+npm help install                                                   from:6 peer:9
+npm help outdated                                                  from:2 peer:1
+npm help run-script                                                ERR!:1 from:2
+npm help explain                                                          from:7
+npm help audit                                                            from:5
+npm help exec                                                             from:5
+npm help npx                                                              from:5
+npm help package-locks                                                    from:4
+————————————————————————————————————————————————————————————————————————————————
+(run with -l or --long to see more context)
+
