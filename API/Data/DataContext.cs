@@ -11,5 +11,6 @@ namespace API.Data
     {
         public DataContext(DbContextOptions options) : base(options) {}
         public DbSet<AppUser> Users { get; set; }
+        // we don't need to add explicitly Photo into our db since we are accessing Photos through Users table
     }
 }
