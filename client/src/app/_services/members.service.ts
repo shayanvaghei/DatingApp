@@ -47,4 +47,14 @@ export class MembersService {
       })
     )
   }
+
+  setMainPhoto(photoId: number) {
+    // since it is a put request then we need to send something along with this wich we send an empty object since we are not sending anything
+    // to update the mainPhoto only
+    return this.http.put(this.baseUrl + 'users/set-main-photo/' + photoId, {});
+  }
+
+  deletePhoto(photoId: number) {
+    return this.http.delete(this.baseUrl + 'users/delete-photo/' + photoId);
+  } 
 }
