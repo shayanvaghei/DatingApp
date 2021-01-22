@@ -12,7 +12,12 @@ namespace API.Extensions
         {
             // first to get the hold of the user
             // this gives us the user's username form the token that API uses to authenticate the user
-            return user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            return user.FindFirst(ClaimTypes.Name)?.Value;
+        }
+
+        public static int GetUserId(this ClaimsPrincipal user)
+        {
+            return int.Parse(user.FindFirst(ClaimTypes.NameIdentifier)?.Value);
         }
     }
 }
