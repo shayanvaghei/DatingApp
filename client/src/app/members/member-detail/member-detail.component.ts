@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
 import { take } from 'rxjs/operators';
@@ -29,10 +29,11 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
 
   // we want to access username's profile by clicking on the user icon so we
   // need to get ActivatedRoute to do this from angular/router
-  constructor(public presence: PresenceService, private route: ActivatedRoute, private messageService: MessageService,
-    private accountService: AccountService) { 
-      // this accesses to the current user
+  constructor(public presence: PresenceService, private route: ActivatedRoute, 
+    private messageService: MessageService, private accountService: AccountService,
+    private router: Router) { 
       this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     }
 
   ngOnInit(): void {
@@ -85,7 +86,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
 
   onTabActivated(data: TabDirective) {
     this.activeTab = data;
-    if(this.activeTab.heading === 'Messages' && this.messages.length === 0) {
+    if (this.activeTab.heading === 'Messages' && this.messages.length === 0) {
       this.messageService.createHubConnection(this.user, this.member.username);
     } else {
       this.messageService.stopHubConnection();
